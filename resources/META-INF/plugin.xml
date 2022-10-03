@@ -1,0 +1,40 @@
+<idea-plugin>
+  <id>com.chiyou.test</id>
+  <name>test</name>
+  <version>1.0</version>
+  <vendor email="563318445@qq.com" url="http://www.qq.com">chiyou</vendor>
+
+  <description><![CDATA[
+      Enter short  1description for your plugin here.<br>
+      <em>most HTML1 tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change1 notes here.<br>
+      <em>most1 HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="test1" class="com.chiyou.test.TestAction" text="测试" description="测试通知功能">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl I"/>
+    </action>
+    <action id="Pop_id" class="com.chiyou.test.PopAction" text="乱码恢复" description="右键点击乱码恢复">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </action>
+  </actions>
+
+</idea-plugin>
