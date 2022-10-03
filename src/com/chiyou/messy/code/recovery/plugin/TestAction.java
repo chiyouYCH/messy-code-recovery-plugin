@@ -1,4 +1,4 @@
-package com.chiyou.test;
+package com.chiyou.messy.code.recovery.plugin;
 
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationDisplayType;

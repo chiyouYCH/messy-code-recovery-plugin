@@ -28,11 +28,11 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="test1" class="com.chiyou.test.TestAction" text="测试" description="测试通知功能">
+    <action id="test1" class="com.chiyou.messy.code.recovery.plugin.TestAction" text="测试" description="测试通知功能">
       <add-to-group group-id="ToolsMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="ctrl I"/>
     </action>
-    <action id="Pop_id" class="com.chiyou.test.PopAction" text="乱码恢复" description="右键点击乱码恢复">
+    <action id="Pop_id" class="com.chiyou.messy.code.recovery.plugin.PopAction" text="乱码恢复" description="右键点击乱码恢复">
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
     </action>
   </actions>

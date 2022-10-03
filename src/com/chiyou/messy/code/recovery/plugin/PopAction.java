@@ -1,4 +1,4 @@
-package com.chiyou.test;
+package com.chiyou.messy.code.recovery.plugin;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -6,7 +6,6 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
-import com.intellij.ui.EditorTextField;
 import com.intellij.ui.components.JBLabel;
 
 import javax.swing.*;
@@ -14,7 +13,6 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
-import java.awt.event.WindowEvent;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
