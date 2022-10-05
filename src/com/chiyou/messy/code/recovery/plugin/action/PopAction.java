@@ -37,7 +37,7 @@ public class PopAction extends AnAction {
         SelectionModel selectionModel = editor.getSelectionModel();
         //获取当前选择的文本
         String selectedText = selectionModel.getSelectedText();
-
+        //乱码恢复
         String result = ConvertUtils.convertText(selectedText);
         //创建JBPopupFactory实例
         JBPopupFactory instance = JBPopupFactory.getInstance();

@@ -1,17 +1,23 @@
 <idea-plugin>
   <id>com.chiyou.messy.code.recovery</id>
-  <name>messy code recovery(乱码恢复)</name>
+  <name>messy code recovery</name>
   <version>1.0</version>
-  <vendor email="563318445@qq.com" url="https://github.com/chiyouYCH/messy-code-recovery-plugin">chiyou</vendor>
+  <vendor email="563318445@qq.com" url="https://github.com/chiyouYCH/messy-code-recovery-plugin">ChiYou</vendor>
 
   <description><![CDATA[
-      messy-code-recovery.<br>
-      <em>most HTML1 tags may be used</em>
+      <tag> messy-code-recovery can help you recovery you code when code messy  </tag>
+      <h3>how to use </h3>
+      <ul><li>Select the content to be recovered -> Right-click -> switch messyCodeRecovery</li></ul>
+
+      <h3>如何使用 </h3>
+      <ul><li>选中要恢复的文本->右键->选择乱码恢复</li></ul>
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change1 notes here.<br>
-      <em>most1 HTML tags may be used</em>
+     <p>1.0</p>
+      <ul>
+        <li>初次提交 </li>
+      </ul>
     ]]>
   </change-notes>
 
