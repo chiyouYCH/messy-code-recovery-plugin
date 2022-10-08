@@ -1,14 +1,14 @@
-<idea-plugin>
+<idea-plugin require-restart="false">
   <id>com.chiyou.messy.code.recovery</id>
   <name>messy code recovery</name>
-  <version>1.0</version>
+  <version>1.1</version>
   <vendor email="563318445@qq.com" url="https://github.com/chiyouYCH/messy-code-recovery-plugin">ChiYou</vendor>
 
   <description><![CDATA[
       <tag> messy-code-recovery can help you recovery you code when code messy  </tag>
       <h3>how to use </h3>
       <ul><li>Select the content to be recovered -> Right-click -> switch messyCodeRecovery</li></ul>
-
+      <tag> messy-code-recovery 能够帮助你恢复乱码的内容（注：部分内容经过转码之后已经无法恢复，如"?"、"�"）  </tag>
       <h3>如何使用 </h3>
       <ul><li>选中要恢复的文本->右键->选择乱码恢复</li></ul>
     ]]></description>
@@ -17,6 +17,10 @@
      <p>1.0</p>
       <ul>
         <li>初次提交 </li>
+      </ul>
+      <p>1.1</p>
+      <ul>
+        <li>解决低版本不兼容性问题</li>
       </ul>
     ]]>
   </change-notes>

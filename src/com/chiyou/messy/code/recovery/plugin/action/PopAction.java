@@ -1,10 +1,7 @@
 package com.chiyou.messy.code.recovery.plugin.action;
 
 import com.chiyou.messy.code.recovery.plugin.uitls.ConvertUtils;
-import com.intellij.notification.Notification;
-import com.intellij.notification.NotificationDisplayType;
-import com.intellij.notification.NotificationGroup;
-import com.intellij.notification.Notifications;
+import com.intellij.notification.*;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -55,7 +52,6 @@ public class PopAction extends AnAction {
         instance.createComponentPopupBuilder(new JScrollPane(panel), new JBLabel())//参数说明：内容对象,优先获取
                 .setMovable(true)
                 .setResizable(true)
-                .setNormalWindowLevel(false)
                 .setMinSize(new Dimension(40,20))
                 .createPopup()
                 .showInBestPositionFor(e.getDataContext());
