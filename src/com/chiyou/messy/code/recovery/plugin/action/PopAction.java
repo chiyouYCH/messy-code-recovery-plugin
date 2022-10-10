@@ -1,20 +1,18 @@
 package com.chiyou.messy.code.recovery.plugin.action;
 
 import com.chiyou.messy.code.recovery.plugin.uitls.ConvertUtils;
-import com.intellij.notification.*;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
-import com.intellij.openapi.ui.MessageType;
+import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
-import com.intellij.ui.components.JBLabel;
+import com.intellij.openapi.wm.WindowManager;
+import com.intellij.ui.awt.RelativePoint;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.Transferable;
 
 /**
  * @author chiyou
@@ -38,44 +36,19 @@ public class PopAction extends AnAction {
         String result = ConvertUtils.convertText(selectedText);
         //创建JBPopupFactory实例
         JBPopupFactory instance = JBPopupFactory.getInstance();
-        TextField label = new TextField(result);
-        JPanel panel = new JPanel();
-        panel.setSize(40,20);
-        panel.add(label);
-        //添加按钮
-        JButton jButton = new JButton("复制");
-        jButton.addActionListener(x -> {
-            setClipboardString(result);
-//            panel.setVisible(false);
-        });
-        panel.add(jButton);
-        instance.createComponentPopupBuilder(new JScrollPane(panel), new JBLabel())//参数说明：内容对象,优先获取
-                .setMovable(true)
-                .setResizable(true)
-                .setMinSize(new Dimension(40,20))
-                .createPopup()
-                .showInBestPositionFor(e.getDataContext());
 
+        Color bg = UIManager.getColor("Panel.background");
 
+        JTextField label = new JTextField(result);
+        label.setHorizontalAlignment(JTextField.CENTER);
+        label.setBackground(bg);
+        label.setFont(new Font(null,Font.PLAIN,18));
+        label.setBorder(null);
+
+        instance.createBalloonBuilder(label)
+                .setFillColor(bg)
+                .createBalloon()
+                .show(RelativePoint.getCenterOf(WindowManager.getInstance().getAllProjectFrames()[0].getComponent()), Balloon.Position.above);
 
     }
-
-    /**
-     * 把文本设置到剪贴板（复制）
-     */
-    public static void setClipboardString(String text) {
-        // 获取系统剪贴板
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        // 封装文本内容
-        Transferable trans = new StringSelection(text);
-        // 把文本内容设置到系统剪贴板
-        clipboard.setContents(trans, null);
-        //提示复制成功
-        NotificationGroup notificationGroup = new NotificationGroup("copyId", NotificationDisplayType.BALLOON, false);
-        Notification notification = notificationGroup.createNotification("复制成功", MessageType.INFO);
-        Notifications.Bus.notify(notification);
-    }
-
-
-
 }
