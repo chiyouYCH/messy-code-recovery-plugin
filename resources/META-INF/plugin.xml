@@ -38,7 +38,11 @@
 
   <actions>
     <action id="messyCodeRecovery" class="com.chiyou.messy.code.recovery.plugin.action.PopAction" text="乱码恢复" description="右键点击乱码恢复">
-      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+      <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="$Paste"/>
+      <!--            右键到文件夹区的处理-->
+      <add-to-group group-id="CutCopyPasteGroup" anchor="before" relative-to-action="$Paste"/>
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <add-to-group group-id="ChangesViewPopupMenu" anchor="after" relative-to-action="EditSource"/>
       <keyboard-shortcut keymap="$default" first-keystroke="ctrl P"/>
     </action>
   </actions>
