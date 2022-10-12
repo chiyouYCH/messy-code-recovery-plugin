@@ -5,6 +5,8 @@ import org.apache.commons.lang.StringUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -43,6 +45,24 @@ public class ConvertUtils {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        return StringUtils.isNotEmpty(result)?result:text;
+        result = StringUtils.isNotEmpty(result) ? result : text;
+        result = unicodeDecode(result);
+        return result;
+    }
+
+    /**
+     * 转Unicode为汉字
+     * @param text
+     * @return
+     */
+    public static String unicodeDecode(String text) {
+        Pattern pattern = Pattern.compile("(\\\\u(\\p{XDigit}{4}))");
+        Matcher matcher = pattern.matcher(text);
+        char ch;
+        while (matcher.find()) {
+            ch = (char) Integer.parseInt(matcher.group(2), 16);
+            text = text.replace(matcher.group(1), ch + "");
+        }
+        return text;
     }
 }

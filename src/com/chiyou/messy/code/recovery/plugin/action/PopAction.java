@@ -8,7 +8,6 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
-import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.awt.RelativePoint;
 
 import javax.swing.*;
@@ -39,16 +38,20 @@ public class PopAction extends AnAction {
 
         Color bg = UIManager.getColor("Panel.background");
 
-        JTextField label = new JTextField(result);
-        label.setHorizontalAlignment(JTextField.CENTER);
-        label.setBackground(bg);
-        label.setFont(new Font(null,Font.PLAIN,18));
-        label.setBorder(null);
+        JTextField text = new JTextField(result);
+        text.setHorizontalAlignment(JTextField.CENTER);
+        text.setBackground(bg);
+        text.setFont(new Font(null,Font.PLAIN,18));
+        text.setBorder(null);
 
-        instance.createBalloonBuilder(label)
+        //获取当前编辑器页面
+        JComponent component = editor.getComponent();
+        Point point = new Point(component.getWidth()/2 , component.getHeight()/2);
+
+        instance.createBalloonBuilder(text)
                 .setFillColor(bg)
                 .createBalloon()
-                .show(RelativePoint.getCenterOf(WindowManager.getInstance().getAllProjectFrames()[0].getComponent()), Balloon.Position.above);
+                .show(new RelativePoint(component, point), Balloon.Position.above);
 
     }
 }

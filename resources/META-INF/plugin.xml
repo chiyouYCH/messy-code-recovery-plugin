@@ -1,14 +1,14 @@
 <idea-plugin require-restart="false">
   <id>com.chiyou.messy.code.recovery</id>
   <name>messy code recovery</name>
-  <version>1.2</version>
+  <version>1.3</version>
   <vendor email="563318445@qq.com" url="https://github.com/chiyouYCH/messy-code-recovery-plugin">ChiYou</vendor>
 
   <description><![CDATA[
       <tag> messy-code-recovery can help you recovery you code when code messy (Note: Some of the content is not recoverable after transcoding, such as "?" , "�") </tag>
       <h3>how to use </h3>
       <ul><li>Select the content to be recovered -> Right-click -> switch messyCodeRecovery</li></ul>
-
+      <br/>
       <tag> messy-code-recovery 能够帮助你恢复乱码的内容（注：部分内容经过转码之后已经无法恢复，如"?"、"�"）  </tag>
       <h3>如何使用 </h3>
       <ul><li>选中要恢复的文本->右键->选择乱码恢复</li></ul>
@@ -27,6 +27,11 @@
       <ul>
         <li>优化ui交互，字体显示</li>
       </ul>
+      <p>1.3</p>
+      <ul>
+        <li>新增Unicode码转换</li>
+        <li>优化ui显示以及范围</li>
+      </ul>
     ]]>
   </change-notes>
 
@@ -44,11 +49,11 @@
   <actions>
     <action id="messyCodeRecovery" class="com.chiyou.messy.code.recovery.plugin.action.PopAction" text="乱码恢复" description="右键点击乱码恢复">
       <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="$Paste"/>
-      <!--            右键到文件夹区的处理-->
       <add-to-group group-id="CutCopyPasteGroup" anchor="before" relative-to-action="$Paste"/>
       <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <add-to-group group-id="Diff.EditorPopupMenu" anchor="first"/>
       <add-to-group group-id="ChangesViewPopupMenu" anchor="after" relative-to-action="EditSource"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="ctrl P"/>
+<!--      <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift P"/>-->
     </action>
   </actions>
 

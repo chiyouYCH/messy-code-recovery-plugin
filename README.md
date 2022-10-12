@@ -12,4 +12,8 @@
 
 2.idea->build -> prepare Plugin Module XXX For Deployment
 
+或者
 
+在Marketplace 搜索 messy code recovery / 乱码恢复
+
+https://plugins.jetbrains.com/plugin/20081-messy-code-recovery
